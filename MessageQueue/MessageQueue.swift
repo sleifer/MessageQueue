@@ -38,11 +38,6 @@ public class MessageQueue<OutputType> {
 
     func send(_ value: OutputType) {
         queueOutput.send(value)
-
-        queue.append(value)
-        if queue.count > depth {
-            queue.removeFirst(queue.count - depth)
-        }
     }
 }
 
@@ -69,19 +64,36 @@ public class MessageQueueListener<OutputType> {
 public class MessageQueueOutput<OutputType> {
     weak var queue: MessageQueue<OutputType>?
     var listeners: [MessageQueueListener<OutputType>?]
+    var dispatch: DispatchQueue
 
     init() {
         listeners = []
+        dispatch = DispatchQueue(label: "MessageQueueOutput DispatchQueue")
     }
 
     public func subscribe(context: MessageQueueContext = .main, handler: @escaping (OutputType) -> Void) -> MessageQueueListener<OutputType> {
         let listener = MessageQueueListener<OutputType>(context: context, handler: handler)
-        listeners.append(listener)
-        sendQueue(to: listener)
+        dispatch.async {
+            self.listeners.append(listener)
+            self.sendQueue(to: listener)
+        }
         return listener
     }
 
     func send(_ value: OutputType) {
+        dispatch.async {
+            self._send(value)
+        }
+    }
+
+    func _send(_ value: OutputType) {
+        if let q = queue {
+            q.queue.append(value)
+            if q.queue.count > q.depth {
+                q.queue.removeFirst(q.queue.count - q.depth)
+            }
+        }
+        
         for listener in listeners {
             if let obj = listener {
                 obj.handler(value)
