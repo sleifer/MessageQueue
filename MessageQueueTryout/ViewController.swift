@@ -29,7 +29,10 @@ class ViewController: NSViewController {
         return String(cString: name, encoding: .utf8) ?? "<unknown>"
     }
 
-    let (q, qi, qo) = MessageQueue<Int>.create()
+    private let (q, qi) = MessageQueue<Int>.create()
+    public private(set) lazy var qo = {
+        return q.queueOutput
+    }()
     var ql: [MessageQueueListener<Int>] = []
 
     func addCoreListeners() {

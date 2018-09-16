@@ -19,9 +19,9 @@ public enum MessageQueueContext {
 }
 
 public class MessageQueue<OutputType> {
-    var queueInput: MessageQueueInput<OutputType>
-    var queueOutput: MessageQueueOutput<OutputType>
-    var depth: Int
+    public private(set) var queueInput: MessageQueueInput<OutputType>
+    public private(set) var queueOutput: MessageQueueOutput<OutputType>
+    public private(set) var depth: Int
     var queue: [OutputType]
 
     init(depth: Int = 1, initial: OutputType? = nil) {
@@ -37,9 +37,9 @@ public class MessageQueue<OutputType> {
         }
     }
 
-    public class func create(depth: Int = 1, initial: OutputType? = nil) -> (MessageQueue<OutputType>, MessageQueueInput<OutputType>, MessageQueueOutput<OutputType>) {
+    public class func create(depth: Int = 1, initial: OutputType? = nil) -> (MessageQueue<OutputType>, MessageQueueInput<OutputType>) {
         let me = MessageQueue<OutputType>(depth: depth, initial: initial)
-        return (me, me.queueInput, me.queueOutput)
+        return (me, me.queueInput)
     }
 
     func send(_ value: OutputType) {

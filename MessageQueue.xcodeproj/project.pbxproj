@@ -27,6 +27,7 @@
 		DBA5BAF3214E8B5900E5FC63 /* MessageQueue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MessageQueue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBA5BB00214E8BE500E5FC63 /* MessageQueue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MessageQueue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBA5BB16214E8EFA00E5FC63 /* libMessageQueue.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMessageQueue.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBA5BB1C214E965300E5FC63 /* Notes.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Notes.txt; sourceTree = "<group>"; };
 		DBC50745214DB4C10009C0C0 /* MessageQueue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MessageQueue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBC50748214DB4C10009C0C0 /* MessageQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageQueue.h; sourceTree = "<group>"; };
 		DBC50749214DB4C10009C0C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,6 +83,7 @@
 		DBC5073B214DB4C10009C0C0 = {
 			isa = PBXGroup;
 			children = (
+				DBA5BB1C214E965300E5FC63 /* Notes.txt */,
 				DBC50747214DB4C10009C0C0 /* MessageQueue */,
 				DBC50755214DB4F00009C0C0 /* MessageQueueTryout */,
 				DBC50746214DB4C10009C0C0 /* Products */,
