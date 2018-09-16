@@ -41,7 +41,7 @@ public class MessageQueue<OutputType> {
 
         queue.append(value)
         if queue.count > depth {
-            queue.removeFirst(depth - queue.count)
+            queue.removeFirst(queue.count - depth)
         }
     }
 }

@@ -20,12 +20,21 @@ class ViewController: NSViewController {
     func test() {
         let (q, qi, qo) = MessageQueue<Int>.create()
 
-        let l = qo.subscribe(context: .main) { (value: Int) in
-            print(value)
+        let l1 = qo.subscribe(context: .main) { (value: Int) in
+            print("A: \(value)")
         }
 
         print("Hi")
+
         qi.send(1)
+        qi.send(2)
+
+        let l2 = qo.subscribe(context: .main) { (value: Int) in
+            print("B: \(value)")
+        }
+
+        qi.send(3)
+
         print("Bye")
     }
 }
