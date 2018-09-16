@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		DBA5BAC9214DD75500E5FC63 /* MessageQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5BAC8214DD75500E5FC63 /* MessageQueue.swift */; };
+		DBA5BB08214E8C3100E5FC63 /* MessageQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5BAC8214DD75500E5FC63 /* MessageQueue.swift */; };
+		DBA5BB09214E8C3100E5FC63 /* MessageQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5BAC8214DD75500E5FC63 /* MessageQueue.swift */; };
+		DBA5BB0A214E8C4A00E5FC63 /* MessageQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = DBC50748214DB4C10009C0C0 /* MessageQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DBA5BB0B214E8C4B00E5FC63 /* MessageQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = DBC50748214DB4C10009C0C0 /* MessageQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DBA5BB1A214E8F3C00E5FC63 /* MessageQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5BAC8214DD75500E5FC63 /* MessageQueue.swift */; };
+		DBA5BB1B214E8F5000E5FC63 /* MessageQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = DBC50748214DB4C10009C0C0 /* MessageQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DBC5074A214DB4C10009C0C0 /* MessageQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = DBC50748214DB4C10009C0C0 /* MessageQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DBC50757214DB4F00009C0C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC50756214DB4F00009C0C0 /* AppDelegate.swift */; };
 		DBC50759214DB4F00009C0C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC50758214DB4F00009C0C0 /* ViewController.swift */; };
@@ -18,6 +24,9 @@
 
 /* Begin PBXFileReference section */
 		DBA5BAC8214DD75500E5FC63 /* MessageQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageQueue.swift; sourceTree = "<group>"; };
+		DBA5BAF3214E8B5900E5FC63 /* MessageQueue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MessageQueue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBA5BB00214E8BE500E5FC63 /* MessageQueue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MessageQueue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBA5BB16214E8EFA00E5FC63 /* libMessageQueue.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMessageQueue.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBC50745214DB4C10009C0C0 /* MessageQueue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MessageQueue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBC50748214DB4C10009C0C0 /* MessageQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageQueue.h; sourceTree = "<group>"; };
 		DBC50749214DB4C10009C0C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,6 +40,27 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DBA5BAF0214E8B5900E5FC63 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBA5BAFD214E8BE500E5FC63 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBA5BB14214E8EFA00E5FC63 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DBC50742214DB4C10009C0C0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -64,6 +94,9 @@
 			children = (
 				DBC50745214DB4C10009C0C0 /* MessageQueue.framework */,
 				DBC50754214DB4F00009C0C0 /* MessageQueueTryout.app */,
+				DBA5BAF3214E8B5900E5FC63 /* MessageQueue.framework */,
+				DBA5BB00214E8BE500E5FC63 /* MessageQueue.framework */,
+				DBA5BB16214E8EFA00E5FC63 /* libMessageQueue.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,6 +134,30 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		DBA5BAEE214E8B5900E5FC63 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBA5BB0A214E8C4A00E5FC63 /* MessageQueue.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBA5BAFB214E8BE500E5FC63 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBA5BB0B214E8C4B00E5FC63 /* MessageQueue.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBA5BB12214E8EFA00E5FC63 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBA5BB1B214E8F5000E5FC63 /* MessageQueue.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DBC50740214DB4C10009C0C0 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -112,9 +169,62 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		DBC50744214DB4C10009C0C0 /* MessageQueue */ = {
+		DBA5BAF2214E8B5900E5FC63 /* MessageQueue-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DBC5074D214DB4C10009C0C0 /* Build configuration list for PBXNativeTarget "MessageQueue" */;
+			buildConfigurationList = DBA5BAF8214E8B5900E5FC63 /* Build configuration list for PBXNativeTarget "MessageQueue-iOS" */;
+			buildPhases = (
+				DBA5BAEE214E8B5900E5FC63 /* Headers */,
+				DBA5BAEF214E8B5900E5FC63 /* Sources */,
+				DBA5BAF0214E8B5900E5FC63 /* Frameworks */,
+				DBA5BAF1214E8B5900E5FC63 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MessageQueue-iOS";
+			productName = MessageQueue;
+			productReference = DBA5BAF3214E8B5900E5FC63 /* MessageQueue.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DBA5BAFF214E8BE500E5FC63 /* MessageQueue-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBA5BB05214E8BE500E5FC63 /* Build configuration list for PBXNativeTarget "MessageQueue-tvOS" */;
+			buildPhases = (
+				DBA5BAFB214E8BE500E5FC63 /* Headers */,
+				DBA5BAFC214E8BE500E5FC63 /* Sources */,
+				DBA5BAFD214E8BE500E5FC63 /* Frameworks */,
+				DBA5BAFE214E8BE500E5FC63 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MessageQueue-tvOS";
+			productName = MessageQueue;
+			productReference = DBA5BB00214E8BE500E5FC63 /* MessageQueue.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DBA5BB15214E8EFA00E5FC63 /* MessageQueue-macOS-static */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBA5BB17214E8EFA00E5FC63 /* Build configuration list for PBXNativeTarget "MessageQueue-macOS-static" */;
+			buildPhases = (
+				DBA5BB12214E8EFA00E5FC63 /* Headers */,
+				DBA5BB13214E8EFA00E5FC63 /* Sources */,
+				DBA5BB14214E8EFA00E5FC63 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MessageQueue-macOS-static";
+			productName = MessageQueue;
+			productReference = DBA5BB16214E8EFA00E5FC63 /* libMessageQueue.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		DBC50744214DB4C10009C0C0 /* MessageQueue-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBC5074D214DB4C10009C0C0 /* Build configuration list for PBXNativeTarget "MessageQueue-macOS" */;
 			buildPhases = (
 				DBC50740214DB4C10009C0C0 /* Headers */,
 				DBC50741214DB4C10009C0C0 /* Sources */,
@@ -125,7 +235,7 @@
 			);
 			dependencies = (
 			);
-			name = MessageQueue;
+			name = "MessageQueue-macOS";
 			productName = MessageQueue;
 			productReference = DBC50745214DB4C10009C0C0 /* MessageQueue.framework */;
 			productType = "com.apple.product-type.framework";
@@ -157,6 +267,15 @@
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = droolongcat.com;
 				TargetAttributes = {
+					DBA5BAF2214E8B5900E5FC63 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					DBA5BAFF214E8BE500E5FC63 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					DBA5BB15214E8EFA00E5FC63 = {
+						CreatedOnToolsVersion = 10.0;
+					};
 					DBC50744214DB4C10009C0C0 = {
 						CreatedOnToolsVersion = 10.0;
 						LastSwiftMigration = 1000;
@@ -179,13 +298,30 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DBC50744214DB4C10009C0C0 /* MessageQueue */,
+				DBC50744214DB4C10009C0C0 /* MessageQueue-macOS */,
+				DBA5BAF2214E8B5900E5FC63 /* MessageQueue-iOS */,
+				DBA5BAFF214E8BE500E5FC63 /* MessageQueue-tvOS */,
+				DBA5BB15214E8EFA00E5FC63 /* MessageQueue-macOS-static */,
 				DBC50753214DB4F00009C0C0 /* MessageQueueTryout */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		DBA5BAF1214E8B5900E5FC63 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBA5BAFE214E8BE500E5FC63 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DBC50743214DB4C10009C0C0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -205,6 +341,30 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		DBA5BAEF214E8B5900E5FC63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBA5BB08214E8C3100E5FC63 /* MessageQueue.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBA5BAFC214E8BE500E5FC63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBA5BB09214E8C3100E5FC63 /* MessageQueue.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBA5BB13214E8EFA00E5FC63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBA5BB1A214E8F3C00E5FC63 /* MessageQueue.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DBC50741214DB4C10009C0C0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -236,6 +396,134 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		DBA5BAF9214E8B5900E5FC63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = MessageQueue/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.droolingcat.MessageQueue;
+				PRODUCT_NAME = MessageQueue;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DBA5BAFA214E8B5900E5FC63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = MessageQueue/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.droolingcat.MessageQueue;
+				PRODUCT_NAME = MessageQueue;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DBA5BB06214E8BE500E5FC63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = MessageQueue/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.droolingcat.MessageQueue;
+				PRODUCT_NAME = MessageQueue;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+			};
+			name = Debug;
+		};
+		DBA5BB07214E8BE500E5FC63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = MessageQueue/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.droolingcat.MessageQueue;
+				PRODUCT_NAME = MessageQueue;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DBA5BB18214E8EFA00E5FC63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = MessageQueue;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		DBA5BB19214E8EFA00E5FC63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = MessageQueue;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
 		DBC5074B214DB4C10009C0C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -377,7 +665,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.droolingcat.MessageQueue;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = MessageQueue;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -404,7 +692,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.droolingcat.MessageQueue;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = MessageQueue;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 			};
@@ -449,6 +737,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DBA5BAF8214E8B5900E5FC63 /* Build configuration list for PBXNativeTarget "MessageQueue-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBA5BAF9214E8B5900E5FC63 /* Debug */,
+				DBA5BAFA214E8B5900E5FC63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBA5BB05214E8BE500E5FC63 /* Build configuration list for PBXNativeTarget "MessageQueue-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBA5BB06214E8BE500E5FC63 /* Debug */,
+				DBA5BB07214E8BE500E5FC63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBA5BB17214E8EFA00E5FC63 /* Build configuration list for PBXNativeTarget "MessageQueue-macOS-static" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBA5BB18214E8EFA00E5FC63 /* Debug */,
+				DBA5BB19214E8EFA00E5FC63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DBC5073F214DB4C10009C0C0 /* Build configuration list for PBXProject "MessageQueue" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -458,7 +773,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DBC5074D214DB4C10009C0C0 /* Build configuration list for PBXNativeTarget "MessageQueue" */ = {
+		DBC5074D214DB4C10009C0C0 /* Build configuration list for PBXNativeTarget "MessageQueue-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DBC5074E214DB4C10009C0C0 /* Debug */,

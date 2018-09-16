@@ -2,11 +2,11 @@
 //  MessageQueue.h
 //  MessageQueue
 //
-//  Created by Simeon Leifer on 9/15/18.
+//  Created by Simeon Leifer on 9/16/18.
 //  Copyright © 2018 droolongcat.com. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for MessageQueue.
 FOUNDATION_EXPORT double MessageQueueVersionNumber;
