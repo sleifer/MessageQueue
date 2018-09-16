@@ -84,7 +84,9 @@ class ViewController: NSViewController {
     }
 
     func removeListener() {
-        ql2.removeFirst()
+        if ql2.count > 0 {
+            ql2.removeFirst()
+        }
     }
 
     var testIdx: Int = 0
