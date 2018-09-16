@@ -18,6 +18,9 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         dispatch = DispatchQueue(label: "ViewController Queue")
+        addCoreListeners()
+        test()
+        test()
         test()
     }
 
@@ -26,37 +29,81 @@ class ViewController: NSViewController {
         return String(cString: name, encoding: .utf8) ?? "<unknown>"
     }
 
-    func test() {
-        let (q, qi, qo) = MessageQueue<Int>.create()
+    let (q, qi, qo) = MessageQueue<Int>.create()
+    var ql: [MessageQueueListener<Int>] = []
 
-        let l1 = qo.subscribe(context: .main) { (value: Int) in
-            print("main: \(value) || \(self.label())")
+    func addCoreListeners() {
+        var l: MessageQueueListener<Int>
+
+        l = qo.subscribe(context: .main) { (value: Int) in
+            print("main: \(value)")
         }
-        let l2 = qo.subscribe(context: .interactive) { (value: Int) in
-            print("interactive: \(value) || \(self.label())")
+        ql.append(l)
+
+        l = qo.subscribe(context: .interactive) { (value: Int) in
+            print("interactive: \(value)")
         }
-        let l3 = qo.subscribe(context: .user) { (value: Int) in
-            print("user: \(value) || \(self.label())")
+        ql.append(l)
+
+        l = qo.subscribe(context: .user) { (value: Int) in
+            print("user: \(value)")
         }
-        let l4 = qo.subscribe(context: .global) { (value: Int) in
-            print("global: \(value) || \(self.label())")
+        ql.append(l)
+
+        l = qo.subscribe(context: .global) { (value: Int) in
+            print("global: \(value)")
         }
-        let l5 = qo.subscribe(context: .background) { (value: Int) in
-            print("background: \(value) || \(self.label())")
+        ql.append(l)
+
+        l = qo.subscribe(context: .background) { (value: Int) in
+            print("background: \(value)")
         }
+        ql.append(l)
+
         if let q = dispatch {
-            let l6 = qo.subscribe(context: .custom(queue: q)) { (value: Int) in
-                print("custom: \(value) || \(self.label())")
+            l = qo.subscribe(context: .custom(queue: q)) { (value: Int) in
+                print("custom: \(value)")
             }
+            ql.append(l)
+
         }
+    }
 
-        print("Hi")
+    var ql2: [MessageQueueListener<Int>] = []
+    var qlIdx: Int = 0
 
-        qi.send(1)
-        qi.send(2)
-        qi.send(3)
+    func addListener() {
+        var l: MessageQueueListener<Int>
 
-        print("Bye")
+        qlIdx += 1
+        let i = qlIdx
+        l = qo.subscribe(context: .main) { (value: Int) in
+            print("\(i): \(value)")
+        }
+        ql2.append(l)
+    }
+
+    func removeListener() {
+        ql2.removeFirst()
+    }
+
+    var testIdx: Int = 0
+
+    func test() {
+        testIdx += 1
+        qi.send(testIdx)
+    }
+
+    @IBAction func addListenerAction(_ sender: Any) {
+        addListener()
+    }
+
+    @IBAction func removeListenerAction(_ sender: Any) {
+        removeListener()
+    }
+
+    @IBAction func testAction(_ sender: Any) {
+        test()
     }
 }
 

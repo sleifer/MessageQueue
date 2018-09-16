@@ -92,9 +92,17 @@ public class MessageQueueListener<OutputType> {
     }
 }
 
+class Weak<T: AnyObject> {
+    weak private(set) var value : T?
+
+    init (_ value: T) {
+        self.value = value
+    }
+}
+
 public class MessageQueueOutput<OutputType> {
     weak var queue: MessageQueue<OutputType>?
-    var listeners: [MessageQueueListener<OutputType>?]
+    var listeners: [Weak<MessageQueueListener<OutputType>>]
     var dispatch: DispatchQueue
 
     init() {
@@ -105,7 +113,7 @@ public class MessageQueueOutput<OutputType> {
     public func subscribe(context: MessageQueueContext = .main, handler: @escaping (OutputType) -> Void) -> MessageQueueListener<OutputType> {
         let listener = MessageQueueListener<OutputType>(context: context, handler: handler)
         dispatch.async {
-            self.listeners.append(listener)
+            self.listeners.append(Weak<MessageQueueListener<OutputType>>(listener))
             self.sendQueue(to: listener)
         }
         return listener
@@ -124,11 +132,17 @@ public class MessageQueueOutput<OutputType> {
                 q.queue.removeFirst(q.queue.count - q.depth)
             }
         }
-        
+
+        var needReap: Bool = false
         for listener in listeners {
-            if let obj = listener {
-                obj.send(value)
+            if let listener = listener.value {
+                listener.send(value)
+            } else {
+                needReap = true
             }
+        }
+        if needReap == true {
+            listeners = listeners.filter { nil != $0.value }
         }
     }
 
