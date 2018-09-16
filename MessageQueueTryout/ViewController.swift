@@ -33,10 +33,10 @@ class ViewController: NSViewController {
     public private(set) lazy var qo = {
         return q.queueOutput
     }()
-    var ql: [MessageQueueListener<Int>] = []
+    var ql: [MessageListener<Int>] = []
 
     func addCoreListeners() {
-        var l: MessageQueueListener<Int>
+        var l: MessageListener<Int>
 
         l = qo.subscribe(context: .main) { (value: Int) in
             print("main: \(value)")
@@ -72,11 +72,11 @@ class ViewController: NSViewController {
         }
     }
 
-    var ql2: [MessageQueueListener<Int>] = []
+    var ql2: [MessageListener<Int>] = []
     var qlIdx: Int = 0
 
     func addListener() {
-        var l: MessageQueueListener<Int>
+        var l: MessageListener<Int>
 
         qlIdx += 1
         let i = qlIdx

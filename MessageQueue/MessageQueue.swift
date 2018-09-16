@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum MessageQueueContext {
+public enum MessageContext {
     case main
     case interactive
     case user
@@ -19,16 +19,16 @@ public enum MessageQueueContext {
 }
 
 public class MessageQueue<OutputType> {
-    public private(set) var queueInput: MessageQueueInput<OutputType>
-    public private(set) var queueOutput: MessageQueueOutput<OutputType>
+    public private(set) var queueInput: MessageInput<OutputType>
+    public private(set) var queueOutput: MessageOutput<OutputType>
     public private(set) var depth: Int
     var queue: [OutputType]
 
     init(depth: Int = 1, initial: OutputType? = nil) {
         self.depth = depth
         self.queue = Array<OutputType>()
-        self.queueInput = MessageQueueInput<OutputType>()
-        self.queueOutput = MessageQueueOutput<OutputType>()
+        self.queueInput = MessageInput<OutputType>()
+        self.queueOutput = MessageOutput<OutputType>()
         queueInput.queue = self
         queueOutput.queue = self
 
@@ -37,7 +37,7 @@ public class MessageQueue<OutputType> {
         }
     }
 
-    public class func create(depth: Int = 1, initial: OutputType? = nil) -> (MessageQueue<OutputType>, MessageQueueInput<OutputType>) {
+    public class func create(depth: Int = 1, initial: OutputType? = nil) -> (MessageQueue<OutputType>, MessageInput<OutputType>) {
         let me = MessageQueue<OutputType>(depth: depth, initial: initial)
         return (me, me.queueInput)
     }
@@ -47,7 +47,7 @@ public class MessageQueue<OutputType> {
     }
 }
 
-public class MessageQueueInput<OutputType> {
+public class MessageInput<OutputType> {
     weak var queue: MessageQueue<OutputType>?
 
     public func send(_ value: OutputType) {
@@ -57,11 +57,11 @@ public class MessageQueueInput<OutputType> {
     }
 }
 
-public class MessageQueueListener<OutputType> {
-    var context: MessageQueueContext
+public class MessageListener<OutputType> {
+    var context: MessageContext
     var handler: (OutputType) -> Void
 
-    init(context: MessageQueueContext, handler: @escaping (OutputType) -> Void) {
+    init(context: MessageContext, handler: @escaping (OutputType) -> Void) {
         self.context = context
         self.handler = handler
     }
@@ -100,20 +100,20 @@ class Weak<T: AnyObject> {
     }
 }
 
-public class MessageQueueOutput<OutputType> {
+public class MessageOutput<OutputType> {
     weak var queue: MessageQueue<OutputType>?
-    var listeners: [Weak<MessageQueueListener<OutputType>>]
+    var listeners: [Weak<MessageListener<OutputType>>]
     var dispatch: DispatchQueue
 
     init() {
         listeners = []
-        dispatch = DispatchQueue(label: "MessageQueueOutput DispatchQueue")
+        dispatch = DispatchQueue(label: "MessageOutput DispatchQueue")
     }
 
-    public func subscribe(context: MessageQueueContext = .main, handler: @escaping (OutputType) -> Void) -> MessageQueueListener<OutputType> {
-        let listener = MessageQueueListener<OutputType>(context: context, handler: handler)
+    public func subscribe(context: MessageContext = .main, handler: @escaping (OutputType) -> Void) -> MessageListener<OutputType> {
+        let listener = MessageListener<OutputType>(context: context, handler: handler)
         dispatch.async {
-            self.listeners.append(Weak<MessageQueueListener<OutputType>>(listener))
+            self.listeners.append(Weak<MessageListener<OutputType>>(listener))
             self.sendQueue(to: listener)
         }
         return listener
@@ -146,7 +146,7 @@ public class MessageQueueOutput<OutputType> {
         }
     }
 
-    func sendQueue(to listener: MessageQueueListener<OutputType>) {
+    func sendQueue(to listener: MessageListener<OutputType>) {
         if let q = queue {
             let items = q.queue
             for item in items {
