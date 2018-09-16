@@ -8,20 +8,25 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+import MessageQueue
 
+class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        test()
     }
 
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
+    func test() {
+        let (q, qi, qo) = MessageQueue<Int>.create()
+
+        let l = qo.subscribe(context: .main) { (value: Int) in
+            print(value)
         }
+
+        print("Hi")
+        qi.send(1)
+        print("Bye")
     }
-
-
 }
 

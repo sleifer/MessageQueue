@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DBA5BAC9214DD75500E5FC63 /* MessageQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5BAC8214DD75500E5FC63 /* MessageQueue.swift */; };
 		DBC5074A214DB4C10009C0C0 /* MessageQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = DBC50748214DB4C10009C0C0 /* MessageQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DBC50757214DB4F00009C0C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC50756214DB4F00009C0C0 /* AppDelegate.swift */; };
 		DBC50759214DB4F00009C0C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC50758214DB4F00009C0C0 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DBA5BAC8214DD75500E5FC63 /* MessageQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageQueue.swift; sourceTree = "<group>"; };
 		DBC50745214DB4C10009C0C0 /* MessageQueue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MessageQueue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBC50748214DB4C10009C0C0 /* MessageQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageQueue.h; sourceTree = "<group>"; };
 		DBC50749214DB4C10009C0C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				DBC50748214DB4C10009C0C0 /* MessageQueue.h */,
+				DBA5BAC8214DD75500E5FC63 /* MessageQueue.swift */,
 				DBC50749214DB4C10009C0C0 /* Info.plist */,
 			);
 			path = MessageQueue;
@@ -156,6 +159,7 @@
 				TargetAttributes = {
 					DBC50744214DB4C10009C0C0 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 					};
 					DBC50753214DB4F00009C0C0 = {
 						CreatedOnToolsVersion = 10.0;
@@ -205,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBA5BAC9214DD75500E5FC63 /* MessageQueue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +360,7 @@
 		DBC5074E214DB4C10009C0C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -373,6 +379,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.droolingcat.MessageQueue;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -380,6 +387,7 @@
 		DBC5074F214DB4C10009C0C0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
