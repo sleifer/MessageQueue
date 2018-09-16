@@ -10,6 +10,12 @@ import Foundation
 
 public enum MessageQueueContext {
     case main
+    case interactive
+    case user
+    case global
+    case utility
+    case background
+    case custom(queue: DispatchQueue)
 }
 
 public class MessageQueue<OutputType> {
@@ -59,6 +65,31 @@ public class MessageQueueListener<OutputType> {
         self.context = context
         self.handler = handler
     }
+
+    func send(_ value: OutputType) {
+        var dq: DispatchQueue = DispatchQueue.main
+
+        switch context {
+        case .main:
+            dq = DispatchQueue.main
+        case .interactive:
+            dq = DispatchQueue.global(qos: .userInteractive)
+        case .user:
+            dq = DispatchQueue.global(qos: .userInitiated)
+        case .global:
+            dq = DispatchQueue.global()
+        case .utility:
+            dq = DispatchQueue.global(qos: .utility)
+        case .background:
+            dq = DispatchQueue.global(qos: .background)
+        case .custom(let queue):
+            dq = queue
+        }
+
+        dq.sync {
+            self.handler(value)
+        }
+    }
 }
 
 public class MessageQueueOutput<OutputType> {
@@ -96,7 +127,7 @@ public class MessageQueueOutput<OutputType> {
         
         for listener in listeners {
             if let obj = listener {
-                obj.handler(value)
+                obj.send(value)
             }
         }
     }
@@ -105,7 +136,7 @@ public class MessageQueueOutput<OutputType> {
         if let q = queue {
             let items = q.queue
             for item in items {
-                listener.handler(item)
+                listener.send(item)
             }
         }
     }
