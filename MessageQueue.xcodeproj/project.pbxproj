@@ -280,10 +280,11 @@
 					};
 					DBC50744214DB4C10009C0C0 = {
 						CreatedOnToolsVersion = 10.0;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 					};
 					DBC50753214DB4F00009C0C0 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -676,7 +677,7 @@
 				PRODUCT_NAME = MessageQueue;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -704,7 +705,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.droolingcat.MessageQueue;
 				PRODUCT_NAME = MessageQueue;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -722,7 +723,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.droolingcat.MessageQueueTryout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -740,7 +741,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.droolingcat.MessageQueueTryout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
