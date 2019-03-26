@@ -26,7 +26,7 @@ public class MessageQueue<OutputType> {
 
     init(depth: Int = 1, initial: OutputType? = nil) {
         self.depth = depth
-        self.queue = Array<OutputType>()
+        self.queue = [OutputType]()
         self.queueInput = MessageInput<OutputType>()
         self.queueOutput = MessageOutput<OutputType>()
         queueInput.queue = self
@@ -93,7 +93,7 @@ public class MessageListener<OutputType> {
 }
 
 class Weak<T: AnyObject> {
-    weak private(set) var value : T?
+    weak private(set) var value: T?
 
     init (_ value: T) {
         self.value = value
@@ -121,15 +121,15 @@ public class MessageOutput<OutputType> {
 
     func send(_ value: OutputType) {
         dispatch.async {
-            self._send(value)
+            self.actualSend(value)
         }
     }
 
-    func _send(_ value: OutputType) {
-        if let q = queue {
-            q.queue.append(value)
-            if q.queue.count > q.depth {
-                q.queue.removeFirst(q.queue.count - q.depth)
+    private func actualSend(_ value: OutputType) {
+        if let qu = queue {
+            qu.queue.append(value)
+            if qu.queue.count > qu.depth {
+                qu.queue.removeFirst(qu.queue.count - qu.depth)
             }
         }
 
@@ -147,8 +147,8 @@ public class MessageOutput<OutputType> {
     }
 
     func sendQueue(to listener: MessageListener<OutputType>) {
-        if let q = queue {
-            let items = q.queue
+        if let qu = queue {
+            let items = qu.queue
             for item in items {
                 listener.send(item)
             }

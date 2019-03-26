@@ -29,45 +29,45 @@ class ViewController: NSViewController {
         return String(cString: name, encoding: .utf8) ?? "<unknown>"
     }
 
-    private let (q, qi) = MessageQueue<Int>.create()
+    private let (qu, qi) = MessageQueue<Int>.create()
     public private(set) lazy var qo = {
-        return q.queueOutput
+        return qu.queueOutput
     }()
     var ql: [MessageListener<Int>] = []
 
     func addCoreListeners() {
-        var l: MessageListener<Int>
+        var li: MessageListener<Int>
 
-        l = qo.subscribe(context: .main) { (value: Int) in
+        li = qo.subscribe(context: .main) { (value: Int) in
             print("main: \(value)")
         }
-        ql.append(l)
+        ql.append(li)
 
-        l = qo.subscribe(context: .interactive) { (value: Int) in
+        li = qo.subscribe(context: .interactive) { (value: Int) in
             print("interactive: \(value)")
         }
-        ql.append(l)
+        ql.append(li)
 
-        l = qo.subscribe(context: .user) { (value: Int) in
+        li = qo.subscribe(context: .user) { (value: Int) in
             print("user: \(value)")
         }
-        ql.append(l)
+        ql.append(li)
 
-        l = qo.subscribe(context: .global) { (value: Int) in
+        li = qo.subscribe(context: .global) { (value: Int) in
             print("global: \(value)")
         }
-        ql.append(l)
+        ql.append(li)
 
-        l = qo.subscribe(context: .background) { (value: Int) in
+        li = qo.subscribe(context: .background) { (value: Int) in
             print("background: \(value)")
         }
-        ql.append(l)
+        ql.append(li)
 
-        if let q = dispatch {
-            l = qo.subscribe(context: .custom(queue: q)) { (value: Int) in
+        if let qu = dispatch {
+            li = qo.subscribe(context: .custom(queue: qu)) { (value: Int) in
                 print("custom: \(value)")
             }
-            ql.append(l)
+            ql.append(li)
 
         }
     }
@@ -76,14 +76,14 @@ class ViewController: NSViewController {
     var qlIdx: Int = 0
 
     func addListener() {
-        var l: MessageListener<Int>
+        var li: MessageListener<Int>
 
         qlIdx += 1
-        let i = qlIdx
-        l = qo.subscribe(context: .main) { (value: Int) in
-            print("\(i): \(value)")
+        let idx = qlIdx
+        li = qo.subscribe(context: .main) { (value: Int) in
+            print("\(idx): \(value)")
         }
-        ql2.append(l)
+        ql2.append(li)
     }
 
     func removeListener() {
@@ -111,4 +111,3 @@ class ViewController: NSViewController {
         test()
     }
 }
-
