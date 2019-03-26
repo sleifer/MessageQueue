@@ -6,6 +6,24 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		DB76151C224A5B7D0017D47D /* All */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = DB76151D224A5B7D0017D47D /* Build configuration list for PBXAggregateTarget "All" */;
+			buildPhases = (
+			);
+			dependencies = (
+				DB761521224A5B8F0017D47D /* PBXTargetDependency */,
+				DB761523224A5B8F0017D47D /* PBXTargetDependency */,
+				DB761525224A5B8F0017D47D /* PBXTargetDependency */,
+				DB761527224A5B8F0017D47D /* PBXTargetDependency */,
+				DB761529224A5B8F0017D47D /* PBXTargetDependency */,
+			);
+			name = All;
+			productName = All;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		DBA5BAC9214DD75500E5FC63 /* MessageQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5BAC8214DD75500E5FC63 /* MessageQueue.swift */; };
 		DBA5BB08214E8C3100E5FC63 /* MessageQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5BAC8214DD75500E5FC63 /* MessageQueue.swift */; };
@@ -21,6 +39,44 @@
 		DBC5075E214DB4F60009C0C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBC5075C214DB4F60009C0C0 /* Main.storyboard */; };
 		DBC50765214DB50A0009C0C0 /* MessageQueue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC50745214DB4C10009C0C0 /* MessageQueue.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DB761520224A5B8F0017D47D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DBC5073C214DB4C10009C0C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DBC50744214DB4C10009C0C0;
+			remoteInfo = "MessageQueue-macOS";
+		};
+		DB761522224A5B8F0017D47D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DBC5073C214DB4C10009C0C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DBA5BAF2214E8B5900E5FC63;
+			remoteInfo = "MessageQueue-iOS";
+		};
+		DB761524224A5B8F0017D47D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DBC5073C214DB4C10009C0C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DBA5BAFF214E8BE500E5FC63;
+			remoteInfo = "MessageQueue-tvOS";
+		};
+		DB761526224A5B8F0017D47D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DBC5073C214DB4C10009C0C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DBA5BB15214E8EFA00E5FC63;
+			remoteInfo = "MessageQueue-macOS-static";
+		};
+		DB761528224A5B8F0017D47D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DBC5073C214DB4C10009C0C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DBC50753214DB4F00009C0C0;
+			remoteInfo = MessageQueueTryout;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		DBA5BAC8214DD75500E5FC63 /* MessageQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageQueue.swift; sourceTree = "<group>"; };
@@ -269,6 +325,9 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = droolongcat.com;
 				TargetAttributes = {
+					DB76151C224A5B7D0017D47D = {
+						CreatedOnToolsVersion = 10.2;
+					};
 					DBA5BAF2214E8B5900E5FC63 = {
 						CreatedOnToolsVersion = 10.0;
 					};
@@ -306,6 +365,7 @@
 				DBA5BAFF214E8BE500E5FC63 /* MessageQueue-tvOS */,
 				DBA5BB15214E8EFA00E5FC63 /* MessageQueue-macOS-static */,
 				DBC50753214DB4F00009C0C0 /* MessageQueueTryout */,
+				DB76151C224A5B7D0017D47D /* All */,
 			);
 		};
 /* End PBXProject section */
@@ -387,6 +447,34 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		DB761521224A5B8F0017D47D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DBC50744214DB4C10009C0C0 /* MessageQueue-macOS */;
+			targetProxy = DB761520224A5B8F0017D47D /* PBXContainerItemProxy */;
+		};
+		DB761523224A5B8F0017D47D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DBA5BAF2214E8B5900E5FC63 /* MessageQueue-iOS */;
+			targetProxy = DB761522224A5B8F0017D47D /* PBXContainerItemProxy */;
+		};
+		DB761525224A5B8F0017D47D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DBA5BAFF214E8BE500E5FC63 /* MessageQueue-tvOS */;
+			targetProxy = DB761524224A5B8F0017D47D /* PBXContainerItemProxy */;
+		};
+		DB761527224A5B8F0017D47D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DBA5BB15214E8EFA00E5FC63 /* MessageQueue-macOS-static */;
+			targetProxy = DB761526224A5B8F0017D47D /* PBXContainerItemProxy */;
+		};
+		DB761529224A5B8F0017D47D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DBC50753214DB4F00009C0C0 /* MessageQueueTryout */;
+			targetProxy = DB761528224A5B8F0017D47D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		DBC5075C214DB4F60009C0C0 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -399,6 +487,24 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		DB76151E224A5B7D0017D47D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5886TSL9MF;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DB76151F224A5B7D0017D47D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5886TSL9MF;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		DBA5BAF9214E8B5900E5FC63 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -748,6 +854,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DB76151D224A5B7D0017D47D /* Build configuration list for PBXAggregateTarget "All" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB76151E224A5B7D0017D47D /* Debug */,
+				DB76151F224A5B7D0017D47D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DBA5BAF8214E8B5900E5FC63 /* Build configuration list for PBXNativeTarget "MessageQueue-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
