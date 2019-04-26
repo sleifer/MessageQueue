@@ -84,7 +84,7 @@
 		DBA5BAF3214E8B5900E5FC63 /* MessageQueue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MessageQueue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBA5BB00214E8BE500E5FC63 /* MessageQueue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MessageQueue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBA5BB16214E8EFA00E5FC63 /* libMessageQueue.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMessageQueue.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		DBA5BB1C214E965300E5FC63 /* Notes.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Notes.txt; sourceTree = "<group>"; };
+		DBA5BB1C214E965300E5FC63 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DBC50745214DB4C10009C0C0 /* MessageQueue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MessageQueue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBC50748214DB4C10009C0C0 /* MessageQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageQueue.h; sourceTree = "<group>"; };
 		DBC50749214DB4C10009C0C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -95,6 +95,7 @@
 		DBC5075D214DB4F60009C0C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DBC5075F214DB4F60009C0C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBC50760214DB4F60009C0C0 /* MessageQueueTryout.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MessageQueueTryout.entitlements; sourceTree = "<group>"; };
+		DBF8A9C222739CD500A6C2D9 /* .jazzy.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .jazzy.yaml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +142,8 @@
 			isa = PBXGroup;
 			children = (
 				DB76152B224A5C5C0017D47D /* .swiftlint.yml */,
-				DBA5BB1C214E965300E5FC63 /* Notes.txt */,
+				DBF8A9C222739CD500A6C2D9 /* .jazzy.yaml */,
+				DBA5BB1C214E965300E5FC63 /* README.md */,
 				DBC50747214DB4C10009C0C0 /* MessageQueue */,
 				DBC50755214DB4F00009C0C0 /* MessageQueueTryout */,
 				DBC50746214DB4C10009C0C0 /* Products */,

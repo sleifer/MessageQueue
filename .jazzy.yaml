@@ -1,0 +1,10 @@
+author: Simeon Leifer
+module_version: 1.0
+module: MessageQueue
+min_acl: public
+output: docs/public
+clean: ~
+xcodebuild_arguments:
+  - -target
+  - MessageQueue-macOS
+readme: README.md
