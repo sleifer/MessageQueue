@@ -32,7 +32,28 @@ public enum MessageContext {
     case background
     /// - custom: a custom queue passed as a parameter
     case custom(queue: DispatchQueue)
+
+    var queue: DispatchQueue {
+        switch self {
+        case .main:
+            return DispatchQueue.main
+        case .interactive:
+            return DispatchQueue.global(qos: .userInteractive)
+        case .user:
+            return DispatchQueue.global(qos: .userInitiated)
+        case .global:
+            return DispatchQueue.global()
+        case .utility:
+            return DispatchQueue.global(qos: .utility)
+        case .background:
+            return DispatchQueue.global(qos: .background)
+        case .custom(let queue):
+            return queue
+        }
+    }
 }
+
+public typealias SendCompletionHandler = () -> Void
 
 /// A thread save message queue with a single input and multiple outputs. Coordinates a single input with a single output that has multiple listeners. Messages are delivered in send order.
 public class MessageQueue<OutputType> {
@@ -59,7 +80,7 @@ public class MessageQueue<OutputType> {
         queueOutput.queue = self
 
         if let value = initial {
-            send(value)
+            send(value, sentContext: .main, sentHandler: nil)
         }
     }
 
@@ -77,8 +98,8 @@ public class MessageQueue<OutputType> {
     /// Send a value to the output. Called from `MessageInput`
     ///
     /// - Parameter value: the value to send
-    func send(_ value: OutputType) {
-        queueOutput.send(value)
+    func send(_ value: OutputType, sentContext: MessageContext, sentHandler: SendCompletionHandler?) {
+        queueOutput.send(value, sentContext: sentContext, sentHandler: sentHandler)
     }
 }
 
@@ -90,9 +111,9 @@ public class MessageInput<OutputType> {
     /// Send a value through the queue
     ///
     /// - Parameter value: the value to send
-    public func send(_ value: OutputType) {
+    public func send(_ value: OutputType, sentContext: MessageContext = .main, sentHandler: SendCompletionHandler? = nil) {
         if let obj = queue {
-            obj.send(value)
+            obj.send(value, sentContext: sentContext, sentHandler: sentHandler)
         }
     }
 }
@@ -118,26 +139,7 @@ public class MessageListener<OutputType> {
     ///
     /// - Parameter value: the value to send
     func send(_ value: OutputType) {
-        var dq: DispatchQueue = DispatchQueue.main
-
-        switch context {
-        case .main:
-            dq = DispatchQueue.main
-        case .interactive:
-            dq = DispatchQueue.global(qos: .userInteractive)
-        case .user:
-            dq = DispatchQueue.global(qos: .userInitiated)
-        case .global:
-            dq = DispatchQueue.global()
-        case .utility:
-            dq = DispatchQueue.global(qos: .utility)
-        case .background:
-            dq = DispatchQueue.global(qos: .background)
-        case .custom(let queue):
-            dq = queue
-        }
-
-        dq.sync {
+        context.queue.sync {
             self.handler(value)
         }
     }
@@ -189,9 +191,14 @@ public class MessageOutput<OutputType> {
     /// Send value to all listeners. Serializes sends.
     ///
     /// - Parameter value: the value to send
-    func send(_ value: OutputType) {
+    func send(_ value: OutputType, sentContext: MessageContext, sentHandler: SendCompletionHandler?) {
         dispatch.async {
             self.actualSend(value)
+            if let handler = sentHandler {
+                sentContext.queue.sync {
+                    handler()
+                }
+            }
         }
     }
 
