@@ -80,7 +80,7 @@
 
 /* Begin PBXFileReference section */
 		DB76152B224A5C5C0017D47D /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
-		DBA5BAC8214DD75500E5FC63 /* MessageQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageQueue.swift; sourceTree = "<group>"; };
+		DBA5BAC8214DD75500E5FC63 /* MessageQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessageQueue.swift; path = ../Sources/MessageQueue/MessageQueue.swift; sourceTree = "<group>"; };
 		DBA5BAF3214E8B5900E5FC63 /* MessageQueue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MessageQueue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBA5BB00214E8BE500E5FC63 /* MessageQueue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MessageQueue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBA5BB16214E8EFA00E5FC63 /* libMessageQueue.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMessageQueue.a; sourceTree = BUILT_PRODUCTS_DIR; };
