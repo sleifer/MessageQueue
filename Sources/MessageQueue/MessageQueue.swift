@@ -238,3 +238,43 @@ public class MessageOutput<OutputType> {
         }
     }
 }
+
+@propertyWrapper
+public class MessageQueued<T> {
+    private var value: T {
+        didSet {
+            qi.send(value)
+        }
+    }
+
+    private let (qu, qi) = MessageQueue<T>.create()
+    private lazy var qo = {
+        return qu.queueOutput
+    }()
+
+    public init(wrappedValue: T) {
+        value = wrappedValue
+        qi.send(value)
+    }
+
+    public var wrappedValue: T {
+        set {
+            value = newValue
+        }
+        get {
+            value
+        }
+    }
+
+    public var projectedValue: MessageQueued<T> {
+        self
+    }
+
+    public var input: MessageInput<T> {
+        return self.qi
+    }
+
+    public var output: MessageOutput<T> {
+        return self.qo
+    }
+}

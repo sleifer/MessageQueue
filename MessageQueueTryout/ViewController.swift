@@ -29,6 +29,8 @@ class ViewController: NSViewController {
         return String(cString: name, encoding: .utf8) ?? "<unknown>"
     }
 
+    @MessageQueued var queuedInt: Int = 0
+
     private let (qu, qi) = MessageQueue<Int>.create()
     public private(set) lazy var qo = {
         return qu.queueOutput
@@ -37,6 +39,11 @@ class ViewController: NSViewController {
 
     func addCoreListeners() {
         var li: MessageListener<Int>
+
+        li = $queuedInt.output.subscribe(context: .main) { (value: Int) in
+            print("queued main: \(value)")
+        }
+        ql.append(li)
 
         li = qo.subscribe(context: .main) { (value: Int) in
             print("main: \(value)")
@@ -97,6 +104,8 @@ class ViewController: NSViewController {
     func test() {
         testIdx += 1
         qi.send(testIdx)
+
+        queuedInt = testIdx
     }
 
     @IBAction func addListenerAction(_ sender: Any) {
